@@ -10,9 +10,8 @@ export const siteConfig = {
     location: "Private villas, homes, yachts, and retreats",
   },
   social: {
-    instagram: "https://www.instagram.com/boccatadimare",
-    whatsapp:
-      "https://wa.me/390000000000?text=Hello%20Francesco%2C%20I%20would%20like%20to%20request%20a%20Boccata%20di%20Mare%20quote.",
+    instagram: "",
+    whatsapp: "",
   },
   analytics: {
     plausibleDomain: process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN ?? "",

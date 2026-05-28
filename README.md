@@ -28,11 +28,11 @@ Open `http://localhost:3000`.
 
 Server-side email variables:
 
-~~~bash
-RESEND_API_KEY=your_resend_key
-BOOKING_TO_EMAIL=francesco@example.com
-BOOKING_FROM_EMAIL="Boccata di Mare <bookings@boccatadimare.com>"
-~~~
+Configure these variables in Cloudflare Pages production and preview environments:
+
+- `RESEND_API_KEY`
+- `BOOKING_TO_EMAIL`
+- `BOOKING_FROM_EMAIL` using a sender verified in Resend, for example the final `boccatadimare.com` mail domain
 
 `RESEND_API_KEY` and `BOOKING_TO_EMAIL` are never imported by client components. If they are missing, `/api/quote` returns a preview-safe success response and logs a development warning instead of failing the site.
 
@@ -62,7 +62,7 @@ The site tracks these optional Plausible events when enabled:
 - Instagram Click
 - Menu Interest Click
 
-Social URLs and brand details live in `src/config/site.ts` for future editing.
+Social URLs and brand details live in `src/config/site.ts` for future editing. Instagram and WhatsApp links are intentionally blank until final production URLs are available; the UI falls back to email instead of rendering unverified links.
 
 ## Cloudflare Pages deployment
 

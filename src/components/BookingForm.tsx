@@ -111,7 +111,7 @@ export function BookingForm() {
           <input {...register("name")} className="form-input" placeholder="Your name" autoComplete="name" />
         </Field>
         <Field label="Email" error={errors.email?.message}>
-          <input {...register("email")} className="form-input" placeholder="you@example.com" autoComplete="email" />
+          <input {...register("email")} className="form-input" placeholder="name@domain.com" autoComplete="email" />
         </Field>
         <Field label="Number of guests" error={errors.guests?.message}>
           <input {...register("guests")} className="form-input" placeholder="8 guests" inputMode="numeric" />

@@ -1,7 +1,7 @@
 type BookingEmailEnv = {
   resendApiKey?: string;
   bookingToEmail?: string;
-  bookingFromEmail: string;
+  bookingFromEmail?: string;
   missing: string[];
 };
 
@@ -10,11 +10,11 @@ let warnedAboutMissingEmailEnv = false;
 export function getBookingEmailEnv(): BookingEmailEnv {
   const resendApiKey = process.env.RESEND_API_KEY;
   const bookingToEmail = process.env.BOOKING_TO_EMAIL;
-  const bookingFromEmail =
-    process.env.BOOKING_FROM_EMAIL ?? "Boccata di Mare <onboarding@resend.dev>";
+  const bookingFromEmail = process.env.BOOKING_FROM_EMAIL;
   const requiredEnvVars: Array<[string, string | undefined]> = [
     ["RESEND_API_KEY", resendApiKey],
     ["BOOKING_TO_EMAIL", bookingToEmail],
+    ["BOOKING_FROM_EMAIL", bookingFromEmail],
   ];
   const missing = requiredEnvVars
     .filter(([, value]) => !value)
@@ -25,7 +25,7 @@ export function getBookingEmailEnv(): BookingEmailEnv {
     console.warn(
       "[Boccata di Mare] Booking email is running in preview-safe mode. Missing env vars: " +
         missing.join(", ") +
-        ". Set RESEND_API_KEY, BOOKING_TO_EMAIL, and optionally BOOKING_FROM_EMAIL to send email."
+        ". Set RESEND_API_KEY, BOOKING_TO_EMAIL, and BOOKING_FROM_EMAIL to send email."
     );
   }
 
@@ -33,5 +33,5 @@ export function getBookingEmailEnv(): BookingEmailEnv {
 }
 
 export function isBookingEmailConfigured(env: BookingEmailEnv) {
-  return Boolean(env.resendApiKey && env.bookingToEmail);
+  return Boolean(env.resendApiKey && env.bookingToEmail && env.bookingFromEmail);
 }

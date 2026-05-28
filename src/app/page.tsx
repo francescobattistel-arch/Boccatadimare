@@ -32,7 +32,7 @@ const structuredData = {
   founder: { "@type": "Person", name: siteConfig.founder },
   servesCuisine: ["Mediterranean", "Seafood", "Italian"],
   priceRange: "Premium",
-  sameAs: [siteConfig.social.instagram],
+  sameAs: [siteConfig.social.instagram].filter(Boolean),
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "Private dining inquiries",
@@ -160,7 +160,7 @@ function Footer() {
     <footer id="contact" className="border-t border-[#fff8ec]/10 px-5 py-12 lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <div><p className="font-display text-3xl text-[#fff8ec]">{siteConfig.name}</p><p className="mt-2 flex items-center gap-2 text-sm text-[#fff8ec]/58"><MapPin className="h-4 w-4" aria-hidden="true" />{siteConfig.contact.location}</p></div>
-        <div className="flex flex-col gap-3 sm:flex-row"><a href={"mailto:" + siteConfig.contact.email} data-plausible-event="Email Click" className="rounded-full border border-[#fff8ec]/15 px-5 py-3 text-sm font-semibold text-[#fff8ec]/75 transition hover:border-[#d7b46a] hover:text-[#d7b46a]">{siteConfig.contact.email}</a><a href={siteConfig.social.instagram} target="_blank" rel="noreferrer" data-plausible-event="Instagram Click" data-plausible-prop-placement="footer" className="rounded-full border border-[#fff8ec]/15 px-5 py-3 text-sm font-semibold text-[#fff8ec]/75 transition hover:border-[#d7b46a] hover:text-[#d7b46a]">Instagram</a><a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer" data-plausible-event="WhatsApp Click" data-plausible-prop-placement="footer" className="rounded-full border border-[#fff8ec]/15 px-5 py-3 text-sm font-semibold text-[#fff8ec]/75 transition hover:border-[#d7b46a] hover:text-[#d7b46a]">WhatsApp</a></div>
+        <div className="flex flex-col gap-3 sm:flex-row"><a href={"mailto:" + siteConfig.contact.email} data-plausible-event="Email Click" data-plausible-prop-placement="footer" className="rounded-full border border-[#fff8ec]/15 px-5 py-3 text-sm font-semibold text-[#fff8ec]/75 transition hover:border-[#d7b46a] hover:text-[#d7b46a]">{siteConfig.contact.email}</a>{siteConfig.social.instagram ? <a href={siteConfig.social.instagram} target="_blank" rel="noreferrer" data-plausible-event="Instagram Click" data-plausible-prop-placement="footer" className="rounded-full border border-[#fff8ec]/15 px-5 py-3 text-sm font-semibold text-[#fff8ec]/75 transition hover:border-[#d7b46a] hover:text-[#d7b46a]">Instagram</a> : null}{siteConfig.social.whatsapp ? <a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer" data-plausible-event="WhatsApp Click" data-plausible-prop-placement="footer" className="rounded-full border border-[#fff8ec]/15 px-5 py-3 text-sm font-semibold text-[#fff8ec]/75 transition hover:border-[#d7b46a] hover:text-[#d7b46a]">WhatsApp</a> : null}</div>
       </div>
     </footer>
   );
