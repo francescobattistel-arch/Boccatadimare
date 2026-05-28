@@ -12,6 +12,7 @@ Luxury one-page private chef website for Francesco Battistel and Boccata di Mare
 - Lucide React
 - React Hook Form + Zod
 - Resend email API
+- Optional Plausible Analytics
 - Cloudflare Pages
 
 ## Local development
@@ -23,9 +24,9 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-## Booking form email
+## Environment variables
 
-The quote form posts to `/api/quote`. In preview builds, submissions return success without sending email until these environment variables are configured:
+Server-side email variables:
 
 ~~~bash
 RESEND_API_KEY=your_resend_key
@@ -33,13 +34,35 @@ BOOKING_TO_EMAIL=francesco@example.com
 BOOKING_FROM_EMAIL="Boccata di Mare <bookings@boccatadimare.com>"
 ~~~
 
-`BOOKING_FROM_EMAIL` must use a sender domain verified in Resend.
+`RESEND_API_KEY` and `BOOKING_TO_EMAIL` are never imported by client components. If they are missing, `/api/quote` returns a preview-safe success response and logs a development warning instead of failing the site.
 
-## Analytics
+Optional client-side analytics:
 
-Set `NEXT_PUBLIC_PLAUSIBLE_DOMAIN=boccatadimare.com` to load Plausible Analytics. Key links and buttons include `data-analytics` attributes for booking, WhatsApp, Instagram, and email click tracking.
+~~~bash
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN=boccatadimare.com
+~~~
 
-Google Analytics can be added in `src/app/layout.tsx` if preferred.
+When `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is unset, Plausible scripts and events are disabled without console errors.
+
+## Booking form email
+
+The concierge quote form posts to `/api/quote` and validates with Zod. The request includes guest count, date, occasion, preferred menu experience, event location, dietary requirements, preferred contact method, and optional notes.
+
+`BOOKING_FROM_EMAIL` must use a sender domain verified in Resend for production delivery.
+
+## Analytics events
+
+The site tracks these optional Plausible events when enabled:
+
+- Hero CTA Click
+- Booking Form Opened
+- Booking Submit Clicked
+- Booking Submitted
+- WhatsApp Click
+- Instagram Click
+- Menu Interest Click
+
+Social URLs and brand details live in `src/config/site.ts` for future editing.
 
 ## Cloudflare Pages deployment
 

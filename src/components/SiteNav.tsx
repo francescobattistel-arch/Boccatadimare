@@ -1,4 +1,5 @@
-import { navigationItems, socialLinks } from "@/navigation/site-nav";
+import { siteConfig } from "@/config/site";
+import { navigationItems } from "@/navigation/site-nav";
 import { Camera, MessageCircle } from "lucide-react";
 
 export function SiteNav() {
@@ -8,7 +9,7 @@ export function SiteNav() {
         <a href="#top" className="group inline-flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d7b46a]/50 font-display text-xl text-[#d7b46a] transition group-hover:bg-[#d7b46a] group-hover:text-[#071512]">B</span>
           <span>
-            <span className="block font-display text-xl leading-none tracking-wide text-[#fff8ec]">Boccata di Mare</span>
+            <span className="block font-display text-xl leading-none tracking-wide text-[#fff8ec]">{siteConfig.name}</span>
             <span className="hidden text-[0.62rem] uppercase tracking-[0.35em] text-[#fff8ec]/55 sm:block">Private chef</span>
           </span>
         </a>
@@ -18,8 +19,8 @@ export function SiteNav() {
           ))}
         </div>
         <div className="flex items-center gap-3">
-          <a href={socialLinks.instagram} target="_blank" rel="noreferrer" aria-label="Boccata di Mare on Instagram" data-analytics="instagram-click" className="hidden rounded-full border border-[#fff8ec]/15 p-3 text-[#fff8ec]/70 transition hover:border-[#d7b46a] hover:text-[#d7b46a] sm:inline-flex"><Camera className="h-4 w-4" aria-hidden="true" /></a>
-          <a href={socialLinks.whatsapp} target="_blank" rel="noreferrer" data-analytics="whatsapp-click" className="inline-flex items-center gap-2 rounded-full bg-[#fff8ec] px-4 py-3 text-xs font-bold uppercase tracking-[0.22em] text-[#071512] transition hover:bg-[#d7b46a]"><MessageCircle className="h-4 w-4" aria-hidden="true" /><span className="hidden sm:inline">WhatsApp</span></a>
+          <a href={siteConfig.social.instagram} target="_blank" rel="noreferrer" aria-label={siteConfig.name + " on Instagram"} data-plausible-event="Instagram Click" data-plausible-prop-placement="navigation" className="hidden rounded-full border border-[#fff8ec]/15 p-3 text-[#fff8ec]/70 transition hover:border-[#d7b46a] hover:text-[#d7b46a] sm:inline-flex"><Camera className="h-4 w-4" aria-hidden="true" /></a>
+          <a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer" data-plausible-event="WhatsApp Click" data-plausible-prop-placement="navigation" className="inline-flex items-center gap-2 rounded-full bg-[#fff8ec] px-4 py-3 text-xs font-bold uppercase tracking-[0.22em] text-[#071512] transition hover:bg-[#d7b46a]"><MessageCircle className="h-4 w-4" aria-hidden="true" /><span className="hidden sm:inline">WhatsApp</span></a>
         </div>
       </nav>
     </header>

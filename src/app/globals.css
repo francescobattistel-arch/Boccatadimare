@@ -50,3 +50,8 @@ body {
   box-shadow: 0 0 0 4px rgba(215, 180, 106, 0.12);
 }
 .text-balance { text-wrap: balance; }
+
+.form-input option {
+  background: #071512;
+  color: #fff8ec;
+}
