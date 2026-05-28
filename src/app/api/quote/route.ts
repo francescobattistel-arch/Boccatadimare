@@ -4,6 +4,8 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 
+export const runtime = "edge";
+
 const quoteSchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
