@@ -1,5 +1,5 @@
 import { navigationItems, socialLinks } from "@/navigation/site-nav";
-import { Instagram, MessageCircle } from "lucide-react";
+import { Camera, MessageCircle } from "lucide-react";
 
 export function SiteNav() {
   return (
@@ -18,7 +18,7 @@ export function SiteNav() {
           ))}
         </div>
         <div className="flex items-center gap-3">
-          <a href={socialLinks.instagram} target="_blank" rel="noreferrer" aria-label="Boccata di Mare on Instagram" data-analytics="instagram-click" className="hidden rounded-full border border-[#fff8ec]/15 p-3 text-[#fff8ec]/70 transition hover:border-[#d7b46a] hover:text-[#d7b46a] sm:inline-flex"><Instagram className="h-4 w-4" aria-hidden="true" /></a>
+          <a href={socialLinks.instagram} target="_blank" rel="noreferrer" aria-label="Boccata di Mare on Instagram" data-analytics="instagram-click" className="hidden rounded-full border border-[#fff8ec]/15 p-3 text-[#fff8ec]/70 transition hover:border-[#d7b46a] hover:text-[#d7b46a] sm:inline-flex"><Camera className="h-4 w-4" aria-hidden="true" /></a>
           <a href={socialLinks.whatsapp} target="_blank" rel="noreferrer" data-analytics="whatsapp-click" className="inline-flex items-center gap-2 rounded-full bg-[#fff8ec] px-4 py-3 text-xs font-bold uppercase tracking-[0.22em] text-[#071512] transition hover:bg-[#d7b46a]"><MessageCircle className="h-4 w-4" aria-hidden="true" /><span className="hidden sm:inline">WhatsApp</span></a>
         </div>
       </nav>
