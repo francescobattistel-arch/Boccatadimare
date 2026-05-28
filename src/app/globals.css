@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --background: #071512;
+  --foreground: #f8f1e7;
+  --gold: #d7b46a;
+  --sea: #0c3a35;
+  --cream: #fff8ec;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+::selection { background: rgba(215, 180, 106, 0.35); color: var(--cream); }
+.font-display { font-family: var(--font-cormorant), Georgia, serif; }
+.noise-overlay {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 248, 236, 0.08), transparent 26rem),
+    radial-gradient(circle at 80% 10%, rgba(215, 180, 106, 0.12), transparent 24rem),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: auto, auto, 42px 42px, 42px 42px;
+}
+.gold-line { background: linear-gradient(90deg, transparent, rgba(215, 180, 106, 0.85), transparent); }
+.glass-panel {
+  background: linear-gradient(145deg, rgba(255, 248, 236, 0.1), rgba(255, 248, 236, 0.04));
+  border: 1px solid rgba(255, 248, 236, 0.16);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(18px);
+}
+.form-input {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 248, 236, 0.16);
+  background: rgba(255, 248, 236, 0.08);
+  padding: 0.9rem 1rem;
+  color: #fff8ec;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+.form-input::placeholder { color: rgba(255, 248, 236, 0.42); }
+.form-input:focus {
+  border-color: rgba(215, 180, 106, 0.78);
+  background: rgba(255, 248, 236, 0.12);
+  box-shadow: 0 0 0 4px rgba(215, 180, 106, 0.12);
+}
+.text-balance { text-wrap: balance; }
