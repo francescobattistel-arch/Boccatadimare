@@ -12,10 +12,11 @@ export function getBookingEmailEnv(): BookingEmailEnv {
   const bookingToEmail = process.env.BOOKING_TO_EMAIL;
   const bookingFromEmail =
     process.env.BOOKING_FROM_EMAIL ?? "Boccata di Mare <onboarding@resend.dev>";
-  const missing = [
+  const requiredEnvVars: Array<[string, string | undefined]> = [
     ["RESEND_API_KEY", resendApiKey],
     ["BOOKING_TO_EMAIL", bookingToEmail],
-  ]
+  ];
+  const missing = requiredEnvVars
     .filter(([, value]) => !value)
     .map(([name]) => name);
 
