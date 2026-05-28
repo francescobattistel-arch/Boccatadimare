@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Boccata di Mare",
-  shortName: "Bocca di Mare",
+  shortName: "Boccata di Mare",
   founder: "Francesco Battistel",
   url: "https://boccatadimare.com",
   description:
