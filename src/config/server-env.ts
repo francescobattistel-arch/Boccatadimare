@@ -32,6 +32,12 @@ export function getBookingEmailEnv(): BookingEmailEnv {
   return { resendApiKey, bookingToEmail, bookingFromEmail, missing };
 }
 
-export function isBookingEmailConfigured(env: BookingEmailEnv) {
+export function isBookingEmailConfigured(
+  env: BookingEmailEnv
+): env is BookingEmailEnv & {
+  resendApiKey: string;
+  bookingToEmail: string;
+  bookingFromEmail: string;
+} {
   return Boolean(env.resendApiKey && env.bookingToEmail && env.bookingFromEmail);
 }
