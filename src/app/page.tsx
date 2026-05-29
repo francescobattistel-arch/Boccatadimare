@@ -1,6 +1,5 @@
 import { BookingForm } from "@/components/BookingForm";
 import { BrandMark } from "@/components/BrandMark";
-import { ChefIllustration } from "@/components/ChefIllustration";
 import { MotionReveal } from "@/components/MotionReveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SiteNav } from "@/components/SiteNav";
@@ -72,54 +71,44 @@ export default function Home() {
   );
 }
 
+
 function Hero() {
   return (
     <section className="noise-overlay relative min-h-screen px-5 pt-28 lg:px-8" aria-labelledby="hero-title">
-      <div className="absolute inset-0 -z-0 bg-[radial-gradient(circle_at_50%_10%,rgba(243,211,155,0.12),rgba(18,9,6,0.88)_55%,#090604_100%)]" />
-      <div className="relative z-10 mx-auto max-w-7xl pb-20 pt-16 lg:pb-28">
-        <MotionReveal className="brand-frame relative overflow-hidden rounded-[2rem] bg-[#100804]/90 p-5 md:rounded-[2.75rem] md:p-9">
-          <div className="absolute inset-4 rounded-[1.45rem] border border-[#d7a25b]/20 md:rounded-[2.1rem]" />
-          <div className="absolute -left-20 top-14 hidden opacity-[0.12] lg:block">
-            <ChefIllustration />
-          </div>
-          <div className="relative grid items-center gap-10 lg:grid-cols-[1fr_0.88fr]">
-            <div className="px-2 py-10 text-center lg:px-8 lg:text-left">
-              <div className="mb-9 flex justify-center lg:justify-start">
-                <BrandMark />
-              </div>
-              <p className="mb-5 inline-flex rounded-full border border-[#d7a25b]/45 px-4 py-2 text-[0.66rem] font-semibold uppercase tracking-[0.34em] text-[#f3d39b]">
-                Luxury private chef by {siteConfig.founder}
+      <div className="absolute inset-0 -z-0 bg-[radial-gradient(circle_at_50%_8%,rgba(241,201,130,0.14),rgba(18,9,6,0.9)_54%,#090604_100%)]" />
+      <div className="relative z-10 mx-auto max-w-7xl pb-20 pt-12 lg:pb-28">
+        <MotionReveal className="brand-frame overflow-hidden rounded-[2rem] bg-[#100804]/94 p-5 md:rounded-[2.75rem] md:p-8">
+          <div className="grid items-stretch gap-7 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="flex flex-col justify-center rounded-[1.5rem] border border-[#d7a25b]/24 bg-[#0b0604]/70 px-5 py-10 text-center md:px-10">
+              <BrandMark className="mx-auto" />
+              <p className="mx-auto mt-9 max-w-xl text-base leading-8 text-[#f7dfb6]/72 md:text-lg">
+                Refined seafood, handmade pasta, and quiet Italian luxury for private dinners, villas, retreats, and intimate celebrations.
               </p>
-              <h1 id="hero-title" className="font-display max-w-4xl text-5xl leading-[0.9] tracking-[-0.03em] text-balance text-[#fff4dd] md:text-7xl lg:text-8xl">
-                Sapori di mare, emozioni italiane.
-              </h1>
-              <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-[#f7dfb6]/72 lg:mx-0 md:text-xl">
-                A warm Italian coastal private dining experience: refined seafood, quiet luxury service, and a visual identity inspired by gold linework, chef craft, and the rhythm of the sea.
-              </p>
-              <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
-                <a href="#booking" data-plausible-event="Hero CTA Click" className="inline-flex items-center justify-center gap-3 rounded-full bg-[#f3d39b] px-7 py-4 text-sm font-bold uppercase tracking-[0.24em] text-[#120906] transition hover:bg-[#fff4dd]">
+              <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
+                <a href="#booking" data-plausible-event="Hero CTA Click" className="inline-flex items-center justify-center gap-3 rounded-full bg-[#f1c982] px-7 py-4 text-sm font-bold uppercase tracking-[0.22em] text-[#120906] transition hover:bg-[#fff4dd]">
                   Request quote<ArrowRight className="h-5 w-5" aria-hidden="true" />
                 </a>
-                <a href="#menus" data-plausible-event="Menu Interest Click" data-plausible-prop-menu="hero-explore" className="inline-flex items-center justify-center rounded-full border border-[#d7a25b]/40 px-7 py-4 text-sm font-bold uppercase tracking-[0.24em] text-[#f3d39b] transition hover:border-[#fff4dd] hover:text-[#fff4dd]">
+                <a href="#menus" data-plausible-event="Menu Interest Click" data-plausible-prop-menu="hero-explore" className="inline-flex items-center justify-center rounded-full border border-[#d7a25b]/42 px-7 py-4 text-sm font-bold uppercase tracking-[0.22em] text-[#f1c982] transition hover:border-[#fff4dd] hover:text-[#fff4dd]">
                   Explore menus
                 </a>
               </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-[28rem]">
-              <div className="absolute inset-5 rounded-[2rem] bg-[#d7a25b]/10 blur-3xl" />
-              <div className="brand-frame relative overflow-hidden rounded-[2rem] bg-[#170d08]/95 p-4">
-                <div className="rounded-[1.45rem] border border-[#d7a25b]/24 bg-[radial-gradient(circle_at_50%_20%,rgba(243,211,155,0.18),transparent_45%)] p-4">
-                  <ChefIllustration />
+            <div className="grid min-h-[38rem] gap-4 md:grid-cols-[1.15fr_0.85fr]">
+              <div className="brand-frame relative overflow-hidden rounded-[1.5rem] bg-[#170d08]">
+                <Image src="/images/tagliolino-gambero-rosso.jpg" alt="Fresh tagliolino pasta with red prawn in a blue ceramic bowl" fill priority sizes="(min-width: 1024px) 45vw, 92vw" className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#090604]/60 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-[#f1c982]/24 bg-[#090604]/70 p-4 backdrop-blur-md">
+                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#f1c982]">Signature plate</p>
+                  <p className="font-display mt-2 text-3xl text-[#fff4dd]">Tagliolino al gambero rosso</p>
                 </div>
-                <div className="mt-5 grid grid-cols-3 gap-3 text-center">
-                  {["Mare", "Italia", "Chef"].map((item) => (
-                    <div key={item} className="rounded-2xl border border-[#d7a25b]/22 bg-[#0b0604]/60 p-3">
-                      <p className="font-display text-2xl text-[#f3d39b]">{item}</p>
-                      <p className="mt-1 text-[0.55rem] font-bold uppercase tracking-[0.22em] text-[#f7dfb6]/45">Bespoke</p>
-                    </div>
-                  ))}
-                </div>
+              </div>
+              <div className="grid gap-4">
+                {[{src:"/images/gambero-rosso.png",alt:"Red prawn crudo with olive oil and herbs"},{src:"/images/tartare-gambero.png",alt:"Red prawn tartare with delicate dots of sauce"}].map((image) => (
+                  <div key={image.src} className="brand-frame relative min-h-64 overflow-hidden rounded-[1.5rem] bg-[#170d08]">
+                    <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 22vw, 45vw" className="object-cover" />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -134,7 +123,7 @@ function Experience() {
     <section id="experience" className="px-5 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.78fr_1.22fr]">
         <MotionReveal>
-          <SectionHeading eyebrow="The experience" title="Gold-line elegance, Italian warmth, coastal precision." copy="The redesigned language follows the references: cinematic black and bronze tones, illustrated chef personality, shrimp-and-wave mark, and a refined Italian seafood mood." />
+          <SectionHeading eyebrow="The experience" title="Gold-line elegance, Italian warmth, coastal precision." copy="The visual language follows the references: cinematic black and bronze tones, a clean shrimp-and-wave mark, refined typography, and a polished Italian seafood mood." />
         </MotionReveal>
         <div className="grid gap-5 md:grid-cols-3">
           {[
@@ -170,12 +159,12 @@ function Gallery() {
           <div className="brand-frame rounded-[2rem] bg-[#100804]/80 p-6">
             <BrandMark className="mx-auto" />
             <ul className="mt-8 space-y-3 text-[#f7dfb6]/72">
-              {["Shrimp-and-wave emblem", "Illustrated chef character", "Copper-gold frame language", "Italian tagline", "Dark restaurant ambience", "Premium private dining tone"].map((item) => <li key={item} className="flex items-center gap-3"><Check className="h-4 w-4 text-[#f3d39b]" aria-hidden="true" />{item}</li>)}
+              {["Shrimp-and-wave emblem", "Copper-gold frame language", "Italian tagline", "Dark restaurant ambience", "Premium private dining tone"].map((item) => <li key={item} className="flex items-center gap-3"><Check className="h-4 w-4 text-[#f3d39b]" aria-hidden="true" />{item}</li>)}
             </ul>
           </div>
         </div>
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {gallery.map((image, index) => <div key={image.src} className={index === 1 ? "brand-frame relative min-h-[28rem] overflow-hidden rounded-[2rem] md:mt-12" : index === 4 ? "brand-frame relative min-h-[22rem] overflow-hidden rounded-[2rem] md:col-span-2" : "brand-frame relative min-h-[28rem] overflow-hidden rounded-[2rem]"}><Image src={image.src} alt={image.alt} fill sizes="(min-width: 768px) 33vw, 90vw" className="object-cover opacity-95" /><div className="absolute inset-0 bg-[#120906]/30" /></div>)}
+        <div className="mt-14 grid auto-rows-[18rem] gap-5 md:grid-cols-6">
+          {gallery.map((image, index) => <div key={image.src} className={index === 1 ? "brand-frame relative overflow-hidden rounded-[2rem] md:col-span-4 md:row-span-2" : index === 4 ? "brand-frame relative overflow-hidden rounded-[2rem] md:col-span-3" : "brand-frame relative overflow-hidden rounded-[2rem] md:col-span-3"}><Image src={image.src} alt={image.alt} fill sizes="(min-width: 768px) 50vw, 92vw" className="object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#120906]/35 via-transparent to-transparent" /></div>)}
         </div>
       </div>
     </section>
