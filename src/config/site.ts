@@ -19,9 +19,9 @@ export const siteConfig = {
     plausibleDomain: process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN ?? "",
   },
   images: {
-    og: "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1600&q=80",
-    hero: "https://images.unsplash.com/photo-1514517220035-925954f2ba72?auto=format&fit=crop&w=1800&q=80",
-    chefTable: "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=80",
+    og: "https://boccatadimare.uk/images/gambero-rosso.png",
+    hero: "/images/tagliolino-gambero-rosso.jpg",
+    chefTable: "/images/gambero-carpaccio.jpg",
   },
   booking: {
     menuExperiences: [

@@ -21,9 +21,11 @@ const processSteps = [
 ];
 
 const gallery = [
-  { src: "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1200&q=80", alt: "Elegant seafood table with Mediterranean dishes" },
-  { src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80", alt: "Premium plated private dining dish" },
-  { src: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80", alt: "Chef-prepared dinner with warm luxury ambience" },
+  { src: "/images/gambero-rosso.png", alt: "Red prawn crudo with olive oil and herbs" },
+  { src: "/images/tagliolino-gambero-rosso.jpg", alt: "Fresh tagliolino pasta with red prawn in a blue ceramic bowl" },
+  { src: "/images/gambero-carpaccio.jpg", alt: "Gambero rosso carpaccio with colored sauces" },
+  { src: "/images/tartare-gambero.png", alt: "Red prawn tartare with delicate dots of sauce" },
+  { src: "/images/spaghetti-crab.jpg", alt: "Minimal spaghetti with crab and seafood sauce" },
 ];
 
 const structuredData = {
@@ -164,7 +166,7 @@ function Gallery() {
     <section className="px-5 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-end gap-8 lg:grid-cols-[1fr_0.8fr]">
-          <SectionHeading eyebrow="Visual mood" title="A warm black-and-gold identity built around the chef and the sea." copy="The page now mirrors the supplied references through bronze line art, a centered wordmark, framed compositions, and a softer illustrated-chef personality." />
+          <SectionHeading eyebrow="Visual mood" title="Signature seafood plates in the Boccatadimare world." copy="The visual story now pairs the black-and-gold brand world with Francesco's real seafood plates: red prawns, crudo, handmade pasta, and refined coastal sauces." />
           <div className="brand-frame rounded-[2rem] bg-[#100804]/80 p-6">
             <BrandMark className="mx-auto" />
             <ul className="mt-8 space-y-3 text-[#f7dfb6]/72">
@@ -173,7 +175,7 @@ function Gallery() {
           </div>
         </div>
         <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {gallery.map((image, index) => <div key={image.src} className={index === 1 ? "brand-frame relative min-h-[28rem] overflow-hidden rounded-[2rem] md:mt-12" : "brand-frame relative min-h-[28rem] overflow-hidden rounded-[2rem]"}><Image src={image.src} alt={image.alt} fill sizes="(min-width: 768px) 33vw, 90vw" className="object-cover opacity-85 mix-blend-luminosity" /><div className="absolute inset-0 bg-[#120906]/30" /></div>)}
+          {gallery.map((image, index) => <div key={image.src} className={index === 1 ? "brand-frame relative min-h-[28rem] overflow-hidden rounded-[2rem] md:mt-12" : index === 4 ? "brand-frame relative min-h-[22rem] overflow-hidden rounded-[2rem] md:col-span-2" : "brand-frame relative min-h-[28rem] overflow-hidden rounded-[2rem]"}><Image src={image.src} alt={image.alt} fill sizes="(min-width: 768px) 33vw, 90vw" className="object-cover opacity-95" /><div className="absolute inset-0 bg-[#120906]/30" /></div>)}
         </div>
       </div>
     </section>
