@@ -90,17 +90,17 @@ export function BookingForm() {
       aria-label="Private chef quote request"
     >
       <div className="mb-8 flex items-start gap-4">
-        <div className="rounded-full bg-[#d7b46a]/15 p-3 text-[#d7b46a]">
+        <div className="rounded-full bg-[#f3d39b]/15 p-3 text-[#f3d39b]">
           <CalendarDays aria-hidden="true" className="h-6 w-6" />
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#d7b46a]">
+          <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#f3d39b]">
             Concierge booking
           </p>
-          <h2 className="font-display mt-2 text-4xl text-[#fff8ec]">
+          <h2 className="font-display mt-2 text-4xl text-[#fff4dd]">
             Request a tailored quote
           </h2>
-          <p className="mt-3 text-sm leading-6 text-[#fff8ec]/62">
+          <p className="mt-3 text-sm leading-6 text-[#fff4dd]/62">
             Share the essentials and Francesco will reply with a refined menu direction, availability, and service recommendation.
           </p>
         </div>
@@ -151,7 +151,7 @@ export function BookingForm() {
         type="submit"
         disabled={isSubmitting}
         data-plausible-event="Booking Submit Clicked"
-        className="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#d7b46a] px-8 py-4 text-sm font-bold uppercase tracking-[0.24em] text-[#071512] transition hover:bg-[#f1d893] disabled:cursor-not-allowed disabled:opacity-70"
+        className="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#f3d39b] px-8 py-4 text-sm font-bold uppercase tracking-[0.24em] text-[#120906] transition hover:bg-[#fff4dd] disabled:cursor-not-allowed disabled:opacity-70"
       >
         {isSubmitting ? <Loader2 aria-hidden="true" className="h-5 w-5 animate-spin" /> : <ArrowRight aria-hidden="true" className="h-5 w-5" />}
         Request quote
@@ -185,7 +185,7 @@ function Field({
 }) {
   return (
     <label className={className ?? "block"}>
-      <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.24em] text-[#fff8ec]/65">
+      <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.24em] text-[#fff4dd]/65">
         {label}
       </span>
       {children}

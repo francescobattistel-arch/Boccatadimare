@@ -1,6 +1,8 @@
 export const siteConfig = {
   name: "Boccata di Mare",
+  wordmark: "Boccatadimare",
   shortName: "Boccata di Mare",
+  tagline: "Sapori di mare, emozioni italiane",
   founder: "Francesco Battistel",
   url: "https://boccatadimare.com",
   description:

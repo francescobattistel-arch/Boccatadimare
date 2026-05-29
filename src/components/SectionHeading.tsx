@@ -13,12 +13,12 @@ export function SectionHeading({
   align = "left",
   tone = "light",
 }: SectionHeadingProps) {
-  const titleClass = tone === "dark" ? "text-[#071512]" : "text-[#fff8ec]";
-  const copyClass = tone === "dark" ? "text-[#071512]/64" : "text-[#fff8ec]/68";
+  const titleClass = tone === "dark" ? "text-[#170d08]" : "text-[#fff4dd]";
+  const copyClass = tone === "dark" ? "text-[#170d08]/66" : "text-[#f7dfb6]/70";
 
   return (
     <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      <p className="text-xs font-semibold uppercase tracking-[0.36em] text-[#d7b46a]">
+      <p className="text-xs font-semibold uppercase tracking-[0.42em] text-[#d7a25b]">
         {eyebrow}
       </p>
       <h2 className={"font-display mt-4 text-4xl leading-[0.95] md:text-6xl " + titleClass}>

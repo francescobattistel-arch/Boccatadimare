@@ -1,4 +1,6 @@
 import { BookingForm } from "@/components/BookingForm";
+import { BrandMark } from "@/components/BrandMark";
+import { ChefIllustration } from "@/components/ChefIllustration";
 import { MotionReveal } from "@/components/MotionReveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SiteNav } from "@/components/SiteNav";
@@ -7,15 +9,17 @@ import { ArrowRight, Check, Fish, Gem, MapPin, Shell, Wine } from "lucide-react"
 import Image from "next/image";
 
 const menuCards = [
-  { title: "Coastal tasting", copy: "Crudo, handmade pasta, market fish, citrus, herbs, and elegant tableside finishing." },
-  { title: "Villa celebration", copy: "A generous Mediterranean feast for birthdays, retreats, anniversaries, and family gatherings." },
-  { title: "Quiet luxury dinner", copy: "A composed, intimate service with paired wines, refined pacing, and discreet hospitality." },
+  { title: "Sapori di mare", copy: "Crudo, handmade pasta, market fish, citrus, herbs, and refined coastal finishing." },
+  { title: "Emozioni italiane", copy: "A generous Italian celebration for birthdays, retreats, anniversaries, and family gatherings." },
+  { title: "Cena su misura", copy: "A composed, intimate service with paired wines, soft pacing, and discreet hospitality." },
 ];
+
 const processSteps = [
   "Share the date, guest count, occasion, location, and dietary notes.",
-  "Receive a bespoke menu proposal and service plan.",
+  "Receive a bespoke menu proposal with a polished Italian coastal direction.",
   "Francesco sources, cooks, plates, serves, and leaves the kitchen immaculate.",
 ];
+
 const gallery = [
   { src: "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1200&q=80", alt: "Elegant seafood table with Mediterranean dishes" },
   { src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80", alt: "Premium plated private dining dish" },
@@ -26,6 +30,8 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "FoodEstablishment",
   name: siteConfig.name,
+  alternateName: siteConfig.wordmark,
+  slogan: siteConfig.tagline,
   url: siteConfig.url,
   image: siteConfig.images.og,
   description: siteConfig.description,
@@ -44,14 +50,14 @@ const structuredData = {
     itemOffered: {
       "@type": "Service",
       name: "Luxury private chef experience",
-      serviceType: "Private chef and bespoke Mediterranean dining",
+      serviceType: "Private chef and bespoke Italian coastal dining",
     },
   },
 };
 
 export default function Home() {
   return (
-    <main id="top" className="min-h-screen overflow-hidden bg-[#071512] text-[#fff8ec]">
+    <main id="top" className="min-h-screen overflow-hidden bg-[#120906] text-[#fff4dd]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <SiteNav />
       <Hero />
@@ -66,27 +72,53 @@ export default function Home() {
 
 function Hero() {
   return (
-    <section className="noise-overlay relative min-h-screen px-5 pt-32 lg:px-8" aria-labelledby="hero-title">
-      <div className="absolute inset-0 -z-0 bg-[radial-gradient(circle_at_center,rgba(12,58,53,0.2),rgba(7,21,18,0.92)_70%)]" />
-      <div className="absolute inset-x-0 top-0 -z-0 h-[82vh] opacity-35" style={{ backgroundImage: "url('" + siteConfig.images.hero + "')", backgroundPosition: "center", backgroundSize: "cover" }} />
-      <div className="absolute inset-x-0 top-0 -z-0 h-[82vh] bg-gradient-to-b from-[#071512]/35 via-[#071512]/72 to-[#071512]" />
-      <div className="relative z-10 mx-auto grid max-w-7xl items-end gap-14 pb-20 pt-20 lg:grid-cols-[1.08fr_0.92fr] lg:pb-28">
-        <MotionReveal>
-          <p className="mb-6 inline-flex rounded-full border border-[#d7b46a]/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.34em] text-[#d7b46a]">Luxury private chef by {siteConfig.founder}</p>
-          <h1 id="hero-title" className="font-display max-w-5xl text-6xl leading-[0.86] tracking-[-0.04em] text-balance md:text-8xl lg:text-9xl">A refined taste of the sea, served privately.</h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-[#fff8ec]/72 md:text-xl">{siteConfig.name} creates bespoke Mediterranean dining for villas, yachts, retreats, and intimate celebrations with the polish of a luxury restaurant and the warmth of home.</p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a href="#booking" data-plausible-event="Hero CTA Click" className="inline-flex items-center justify-center gap-3 rounded-full bg-[#d7b46a] px-7 py-4 text-sm font-bold uppercase tracking-[0.24em] text-[#071512] transition hover:bg-[#f1d893]">Request quote<ArrowRight className="h-5 w-5" aria-hidden="true" /></a>
-            <a href="#menus" data-plausible-event="Menu Interest Click" data-plausible-prop-menu="hero-explore" className="inline-flex items-center justify-center rounded-full border border-[#fff8ec]/18 px-7 py-4 text-sm font-bold uppercase tracking-[0.24em] text-[#fff8ec] transition hover:border-[#d7b46a] hover:text-[#d7b46a]">Explore menus</a>
+    <section className="noise-overlay relative min-h-screen px-5 pt-28 lg:px-8" aria-labelledby="hero-title">
+      <div className="absolute inset-0 -z-0 bg-[radial-gradient(circle_at_50%_10%,rgba(243,211,155,0.12),rgba(18,9,6,0.88)_55%,#090604_100%)]" />
+      <div className="relative z-10 mx-auto max-w-7xl pb-20 pt-16 lg:pb-28">
+        <MotionReveal className="brand-frame relative overflow-hidden rounded-[2rem] bg-[#100804]/90 p-5 md:rounded-[2.75rem] md:p-9">
+          <div className="absolute inset-4 rounded-[1.45rem] border border-[#d7a25b]/20 md:rounded-[2.1rem]" />
+          <div className="absolute -left-20 top-14 hidden opacity-[0.12] lg:block">
+            <ChefIllustration />
           </div>
-        </MotionReveal>
-        <MotionReveal className="glass-panel rounded-[2.5rem] p-5 md:p-7">
-          <div className="rounded-[2rem] bg-[#fff8ec] p-4 text-[#071512]">
-            <div className="relative min-h-[28rem] overflow-hidden rounded-[1.5rem]">
-              <Image src={siteConfig.images.chefTable} alt="Private chef preparing a premium Mediterranean dish" fill priority sizes="(min-width: 1024px) 44vw, 90vw" className="object-cover" />
+          <div className="relative grid items-center gap-10 lg:grid-cols-[1fr_0.88fr]">
+            <div className="px-2 py-10 text-center lg:px-8 lg:text-left">
+              <div className="mb-9 flex justify-center lg:justify-start">
+                <BrandMark />
+              </div>
+              <p className="mb-5 inline-flex rounded-full border border-[#d7a25b]/45 px-4 py-2 text-[0.66rem] font-semibold uppercase tracking-[0.34em] text-[#f3d39b]">
+                Luxury private chef by {siteConfig.founder}
+              </p>
+              <h1 id="hero-title" className="font-display max-w-4xl text-5xl leading-[0.9] tracking-[-0.03em] text-balance text-[#fff4dd] md:text-7xl lg:text-8xl">
+                Sapori di mare, emozioni italiane.
+              </h1>
+              <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-[#f7dfb6]/72 lg:mx-0 md:text-xl">
+                A warm Italian coastal private dining experience: refined seafood, quiet luxury service, and a visual identity inspired by gold linework, chef craft, and the rhythm of the sea.
+              </p>
+              <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
+                <a href="#booking" data-plausible-event="Hero CTA Click" className="inline-flex items-center justify-center gap-3 rounded-full bg-[#f3d39b] px-7 py-4 text-sm font-bold uppercase tracking-[0.24em] text-[#120906] transition hover:bg-[#fff4dd]">
+                  Request quote<ArrowRight className="h-5 w-5" aria-hidden="true" />
+                </a>
+                <a href="#menus" data-plausible-event="Menu Interest Click" data-plausible-prop-menu="hero-explore" className="inline-flex items-center justify-center rounded-full border border-[#d7a25b]/40 px-7 py-4 text-sm font-bold uppercase tracking-[0.24em] text-[#f3d39b] transition hover:border-[#fff4dd] hover:text-[#fff4dd]">
+                  Explore menus
+                </a>
+              </div>
             </div>
-            <div className="grid gap-4 px-2 py-6 sm:grid-cols-3">
-              {["Seasonal", "Coastal", "Bespoke"].map((item) => <div key={item} className="rounded-2xl border border-[#071512]/10 p-4 text-center"><p className="font-display text-2xl">{item}</p><p className="mt-1 text-[0.62rem] font-bold uppercase tracking-[0.22em] text-[#071512]/55">Private dining</p></div>)}
+
+            <div className="relative mx-auto w-full max-w-[28rem]">
+              <div className="absolute inset-5 rounded-[2rem] bg-[#d7a25b]/10 blur-3xl" />
+              <div className="brand-frame relative overflow-hidden rounded-[2rem] bg-[#170d08]/95 p-4">
+                <div className="rounded-[1.45rem] border border-[#d7a25b]/24 bg-[radial-gradient(circle_at_50%_20%,rgba(243,211,155,0.18),transparent_45%)] p-4">
+                  <ChefIllustration />
+                </div>
+                <div className="mt-5 grid grid-cols-3 gap-3 text-center">
+                  {["Mare", "Italia", "Chef"].map((item) => (
+                    <div key={item} className="rounded-2xl border border-[#d7a25b]/22 bg-[#0b0604]/60 p-3">
+                      <p className="font-display text-2xl text-[#f3d39b]">{item}</p>
+                      <p className="mt-1 text-[0.55rem] font-bold uppercase tracking-[0.22em] text-[#f7dfb6]/45">Bespoke</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </MotionReveal>
@@ -98,14 +130,16 @@ function Hero() {
 function Experience() {
   return (
     <section id="experience" className="px-5 py-24 lg:px-8 lg:py-32">
-      <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.8fr_1.2fr]">
-        <MotionReveal><SectionHeading eyebrow="The experience" title="Mediterranean elegance with quietly precise service." copy="Every event is designed around season, setting, and guest rhythm: seafood from the market, handmade details, and service that feels effortless." /></MotionReveal>
+      <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.78fr_1.22fr]">
+        <MotionReveal>
+          <SectionHeading eyebrow="The experience" title="Gold-line elegance, Italian warmth, coastal precision." copy="The redesigned language follows the references: cinematic black and bronze tones, illustrated chef personality, shrimp-and-wave mark, and a refined Italian seafood mood." />
+        </MotionReveal>
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            { icon: Fish, title: "Sea-led menus", copy: "Crudo, shellfish, grilled fish, bright vegetables, olive oil, and coastal herbs." },
-            { icon: Wine, title: "Curated service", copy: "Wine-friendly pacing, plated courses, shared feasts, and discreet hospitality." },
-            { icon: Gem, title: "Luxury finish", copy: "Elegant tables, polished plating, and a kitchen reset before Francesco leaves." },
-          ].map((item) => <MotionReveal key={item.title} className="glass-panel rounded-[2rem] p-6"><item.icon className="h-8 w-8 text-[#d7b46a]" aria-hidden="true" /><h3 className="font-display mt-8 text-3xl text-[#fff8ec]">{item.title}</h3><p className="mt-4 leading-7 text-[#fff8ec]/64">{item.copy}</p></MotionReveal>)}
+            { icon: Fish, title: "Sapori di mare", copy: "Crudo, shellfish, grilled fish, bright vegetables, olive oil, and coastal herbs." },
+            { icon: Wine, title: "Emozioni italiane", copy: "Warm service, elegant pacing, and the generosity of an Italian table." },
+            { icon: Gem, title: "Luxury finish", copy: "Gold accents, polished plating, and a kitchen reset before Francesco leaves." },
+          ].map((item) => <MotionReveal key={item.title} className="glass-panel rounded-[2rem] p-6"><item.icon className="h-8 w-8 text-[#f3d39b]" aria-hidden="true" /><h3 className="font-display mt-8 text-3xl text-[#fff4dd]">{item.title}</h3><p className="mt-4 leading-7 text-[#f7dfb6]/64">{item.copy}</p></MotionReveal>)}
         </div>
       </div>
     </section>
@@ -114,11 +148,11 @@ function Experience() {
 
 function Menus() {
   return (
-    <section id="menus" className="bg-[#fff8ec] px-5 py-24 text-[#071512] lg:px-8 lg:py-32">
+    <section id="menus" className="bg-[#f5dfb8] px-5 py-24 text-[#170d08] lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading tone="dark" align="center" eyebrow="Bespoke menus" title="Restaurant-level cooking, designed for the room you are in." copy="Choose a direction, then Francesco tailors the final proposal around seasonality, dietary needs, location logistics, and the mood of the occasion." />
+        <SectionHeading tone="dark" align="center" eyebrow="Bespoke menus" title="Italian coastal dining with a signature Boccatadimare look." copy="Choose a direction, then Francesco tailors the final proposal around seasonality, dietary needs, location logistics, and the atmosphere of the occasion." />
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
-          {menuCards.map((card) => <article key={card.title} className="rounded-[2rem] border border-[#071512]/10 bg-white p-8 shadow-[0_24px_80px_rgba(7,21,18,0.08)]"><Shell className="h-8 w-8 text-[#9f7937]" aria-hidden="true" /><h3 className="font-display mt-10 text-4xl">{card.title}</h3><p className="mt-5 leading-7 text-[#071512]/62">{card.copy}</p><a href="#booking" data-plausible-event="Menu Interest Click" data-plausible-prop-menu={card.title} className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#071512]/10 px-5 py-3 text-xs font-bold uppercase tracking-[0.22em] text-[#071512] transition hover:border-[#9f7937] hover:text-[#9f7937]">Discuss this menu<ArrowRight className="h-4 w-4" aria-hidden="true" /></a></article>)}
+          {menuCards.map((card) => <article key={card.title} className="rounded-[2rem] border border-[#7b4b22]/18 bg-[#fff4dd] p-8 shadow-[0_24px_80px_rgba(23,13,8,0.12)]"><Shell className="h-8 w-8 text-[#9f642d]" aria-hidden="true" /><h3 className="font-display mt-10 text-4xl">{card.title}</h3><p className="mt-5 leading-7 text-[#170d08]/66">{card.copy}</p><a href="#booking" data-plausible-event="Menu Interest Click" data-plausible-prop-menu={card.title} className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#7b4b22]/18 px-5 py-3 text-xs font-bold uppercase tracking-[0.22em] text-[#7b4b22] transition hover:border-[#170d08] hover:text-[#170d08]">Discuss this menu<ArrowRight className="h-4 w-4" aria-hidden="true" /></a></article>)}
         </div>
       </div>
     </section>
@@ -130,11 +164,16 @@ function Gallery() {
     <section className="px-5 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-end gap-8 lg:grid-cols-[1fr_0.8fr]">
-          <SectionHeading eyebrow="Visual mood" title="A premium coastal language for private dining." copy="The site uses deep sea greens, warm ivory, gold accents, editorial spacing, and soft motion to create a luxury feeling similar to high-end private dining brands." />
-          <div className="glass-panel rounded-[2rem] p-6"><p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#d7b46a]">Ready for phase 2</p><ul className="mt-5 space-y-3 text-[#fff8ec]/72">{["Gallery CMS", "Seasonal menus", "Deposit payments", "Reviews", "Instagram feed", "EN / IT language switch"].map((item) => <li key={item} className="flex items-center gap-3"><Check className="h-4 w-4 text-[#d7b46a]" aria-hidden="true" />{item}</li>)}</ul></div>
+          <SectionHeading eyebrow="Visual mood" title="A warm black-and-gold identity built around the chef and the sea." copy="The page now mirrors the supplied references through bronze line art, a centered wordmark, framed compositions, and a softer illustrated-chef personality." />
+          <div className="brand-frame rounded-[2rem] bg-[#100804]/80 p-6">
+            <BrandMark className="mx-auto" />
+            <ul className="mt-8 space-y-3 text-[#f7dfb6]/72">
+              {["Shrimp-and-wave emblem", "Illustrated chef character", "Copper-gold frame language", "Italian tagline", "Dark restaurant ambience", "Premium private dining tone"].map((item) => <li key={item} className="flex items-center gap-3"><Check className="h-4 w-4 text-[#f3d39b]" aria-hidden="true" />{item}</li>)}
+            </ul>
+          </div>
         </div>
         <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {gallery.map((image, index) => <div key={image.src} className={index === 1 ? "relative min-h-[28rem] overflow-hidden rounded-[2rem] md:mt-12" : "relative min-h-[28rem] overflow-hidden rounded-[2rem]"}><Image src={image.src} alt={image.alt} fill sizes="(min-width: 768px) 33vw, 90vw" className="object-cover" /></div>)}
+          {gallery.map((image, index) => <div key={image.src} className={index === 1 ? "brand-frame relative min-h-[28rem] overflow-hidden rounded-[2rem] md:mt-12" : "brand-frame relative min-h-[28rem] overflow-hidden rounded-[2rem]"}><Image src={image.src} alt={image.alt} fill sizes="(min-width: 768px) 33vw, 90vw" className="object-cover opacity-85 mix-blend-luminosity" /><div className="absolute inset-0 bg-[#120906]/30" /></div>)}
         </div>
       </div>
     </section>
@@ -146,8 +185,8 @@ function Booking() {
     <section id="booking" className="relative px-5 py-24 lg:px-8 lg:py-32">
       <div className="absolute inset-x-0 top-1/2 -z-0 h-px gold-line" />
       <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr]">
-        <div><SectionHeading eyebrow="Booking flow" title="From first note to final course, every detail is handled." copy="Submit the essentials and receive a tailored menu, pricing, and service recommendation. Resend email notifications are wired for production once environment variables are set." />
-          <div className="mt-10 space-y-5">{processSteps.map((step, index) => <div key={step} className="flex gap-4 rounded-3xl border border-[#fff8ec]/10 bg-[#fff8ec]/5 p-5"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#d7b46a] text-sm font-bold text-[#071512]">{index + 1}</span><p className="leading-7 text-[#fff8ec]/72">{step}</p></div>)}</div>
+        <div><SectionHeading eyebrow="Booking flow" title="From first note to final course, every detail is handled." copy="Submit the essentials and receive a tailored menu, pricing, and service recommendation. The experience stays visually aligned with the Boccatadimare black-and-gold brand world." />
+          <div className="mt-10 space-y-5">{processSteps.map((step, index) => <div key={step} className="flex gap-4 rounded-3xl border border-[#d7a25b]/24 bg-[#100804]/70 p-5"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f3d39b] text-sm font-bold text-[#120906]">{index + 1}</span><p className="leading-7 text-[#f7dfb6]/72">{step}</p></div>)}</div>
         </div>
         <BookingForm />
       </div>
@@ -157,10 +196,10 @@ function Booking() {
 
 function Footer() {
   return (
-    <footer id="contact" className="border-t border-[#fff8ec]/10 px-5 py-12 lg:px-8">
+    <footer id="contact" className="border-t border-[#d7a25b]/20 px-5 py-12 lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
-        <div><p className="font-display text-3xl text-[#fff8ec]">{siteConfig.name}</p><p className="mt-2 flex items-center gap-2 text-sm text-[#fff8ec]/58"><MapPin className="h-4 w-4" aria-hidden="true" />{siteConfig.contact.location}</p></div>
-        <div className="flex flex-col gap-3 sm:flex-row"><a href={"mailto:" + siteConfig.contact.email} data-plausible-event="Email Click" data-plausible-prop-placement="footer" className="rounded-full border border-[#fff8ec]/15 px-5 py-3 text-sm font-semibold text-[#fff8ec]/75 transition hover:border-[#d7b46a] hover:text-[#d7b46a]">{siteConfig.contact.email}</a>{siteConfig.social.instagram ? <a href={siteConfig.social.instagram} target="_blank" rel="noreferrer" data-plausible-event="Instagram Click" data-plausible-prop-placement="footer" className="rounded-full border border-[#fff8ec]/15 px-5 py-3 text-sm font-semibold text-[#fff8ec]/75 transition hover:border-[#d7b46a] hover:text-[#d7b46a]">Instagram</a> : null}{siteConfig.social.whatsapp ? <a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer" data-plausible-event="WhatsApp Click" data-plausible-prop-placement="footer" className="rounded-full border border-[#fff8ec]/15 px-5 py-3 text-sm font-semibold text-[#fff8ec]/75 transition hover:border-[#d7b46a] hover:text-[#d7b46a]">WhatsApp</a> : null}</div>
+        <div><BrandMark variant="compact" /><p className="mt-4 flex items-center gap-2 text-sm text-[#f7dfb6]/58"><MapPin className="h-4 w-4" aria-hidden="true" />{siteConfig.contact.location}</p></div>
+        <div className="flex flex-col gap-3 sm:flex-row"><a href={"mailto:" + siteConfig.contact.email} data-plausible-event="Email Click" data-plausible-prop-placement="footer" className="rounded-full border border-[#d7a25b]/26 px-5 py-3 text-sm font-semibold text-[#f7dfb6]/75 transition hover:border-[#f3d39b] hover:text-[#f3d39b]">{siteConfig.contact.email}</a>{siteConfig.social.instagram ? <a href={siteConfig.social.instagram} target="_blank" rel="noreferrer" data-plausible-event="Instagram Click" data-plausible-prop-placement="footer" className="rounded-full border border-[#d7a25b]/26 px-5 py-3 text-sm font-semibold text-[#f7dfb6]/75 transition hover:border-[#f3d39b] hover:text-[#f3d39b]">Instagram</a> : null}{siteConfig.social.whatsapp ? <a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer" data-plausible-event="WhatsApp Click" data-plausible-prop-placement="footer" className="rounded-full border border-[#d7a25b]/26 px-5 py-3 text-sm font-semibold text-[#f7dfb6]/75 transition hover:border-[#f3d39b] hover:text-[#f3d39b]">WhatsApp</a> : null}</div>
       </div>
     </footer>
   );
