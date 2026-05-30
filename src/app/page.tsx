@@ -74,27 +74,27 @@ export default function Home() {
 
 function Hero() {
   return (
-    <section className="noise-overlay relative min-h-screen px-5 pt-28 lg:px-8" aria-labelledby="hero-title">
+    <section className="noise-overlay relative min-h-screen px-3 pt-24 sm:px-5 sm:pt-28 lg:px-8" aria-labelledby="hero-title">
       <div className="absolute inset-0 -z-0 bg-[radial-gradient(circle_at_50%_8%,rgba(241,201,130,0.14),rgba(18,9,6,0.9)_54%,#090604_100%)]" />
       <div className="relative z-10 mx-auto max-w-7xl pb-20 pt-12 lg:pb-28">
-        <MotionReveal className="brand-frame overflow-hidden rounded-[2rem] bg-[#100804]/94 p-5 md:rounded-[2.75rem] md:p-8">
+        <MotionReveal className="brand-frame overflow-hidden rounded-[1.4rem] bg-[#100804]/94 p-3 sm:rounded-[2rem] sm:p-5 md:rounded-[2.75rem] md:p-8">
           <div className="grid items-stretch gap-7 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="flex flex-col justify-center rounded-[1.5rem] border border-[#d7a25b]/24 bg-[#0b0604]/70 px-5 py-10 text-center md:px-10">
+            <div className="flex min-w-0 flex-col justify-center rounded-[1.15rem] border border-[#d7a25b]/24 bg-[#0b0604]/70 px-4 py-8 text-center sm:rounded-[1.5rem] sm:px-5 sm:py-10 md:px-10">
               <BrandMark className="mx-auto" />
-              <p className="mx-auto mt-9 max-w-xl text-base leading-8 text-[#f7dfb6]/72 md:text-lg">
+              <p className="mx-auto mt-7 max-w-xl text-sm leading-7 text-[#f7dfb6]/72 sm:mt-9 sm:text-base md:text-lg">
                 Refined seafood, handmade pasta, and quiet Italian luxury for private dinners, villas, retreats, and intimate celebrations.
               </p>
-              <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-                <a href="#booking" data-plausible-event="Hero CTA Click" className="inline-flex items-center justify-center gap-3 rounded-full bg-[#f1c982] px-7 py-4 text-sm font-bold uppercase tracking-[0.22em] text-[#120906] transition hover:bg-[#fff4dd]">
+              <div className="mt-8 flex flex-col justify-center gap-3 sm:mt-9 sm:flex-row sm:gap-4">
+                <a href="#booking" data-plausible-event="Hero CTA Click" className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#f1c982] px-5 py-4 text-xs font-bold uppercase tracking-[0.16em] text-[#120906] transition hover:bg-[#fff4dd] sm:w-auto sm:px-7 sm:text-sm sm:tracking-[0.22em]">
                   Request quote<ArrowRight className="h-5 w-5" aria-hidden="true" />
                 </a>
-                <a href="#menus" data-plausible-event="Menu Interest Click" data-plausible-prop-menu="hero-explore" className="inline-flex items-center justify-center rounded-full border border-[#d7a25b]/42 px-7 py-4 text-sm font-bold uppercase tracking-[0.22em] text-[#f1c982] transition hover:border-[#fff4dd] hover:text-[#fff4dd]">
+                <a href="#menus" data-plausible-event="Menu Interest Click" data-plausible-prop-menu="hero-explore" className="inline-flex w-full items-center justify-center rounded-full border border-[#d7a25b]/42 px-5 py-4 text-xs font-bold uppercase tracking-[0.16em] text-[#f1c982] transition hover:border-[#fff4dd] hover:text-[#fff4dd] sm:w-auto sm:px-7 sm:text-sm sm:tracking-[0.22em]">
                   Explore menus
                 </a>
               </div>
             </div>
 
-            <div className="grid min-h-[38rem] gap-4 md:grid-cols-[1.15fr_0.85fr]">
+            <div className="grid min-h-[28rem] gap-4 sm:min-h-[34rem] md:grid-cols-[1.15fr_0.85fr] lg:min-h-[38rem]">
               <div className="brand-frame relative overflow-hidden rounded-[1.5rem] bg-[#170d08]">
                 <Image src="/images/tagliolino-gambero-rosso.jpg" alt="Fresh tagliolino pasta with red prawn in a blue ceramic bowl" fill priority sizes="(min-width: 1024px) 45vw, 92vw" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#090604]/60 via-transparent to-transparent" />
@@ -105,7 +105,7 @@ function Hero() {
               </div>
               <div className="grid gap-4">
                 {[{src:"/images/gambero-rosso.png",alt:"Red prawn crudo with olive oil and herbs"},{src:"/images/tartare-gambero.png",alt:"Red prawn tartare with delicate dots of sauce"}].map((image) => (
-                  <div key={image.src} className="brand-frame relative min-h-64 overflow-hidden rounded-[1.5rem] bg-[#170d08]">
+                  <div key={image.src} className="brand-frame relative min-h-48 overflow-hidden rounded-[1.2rem] bg-[#170d08] sm:min-h-64 sm:rounded-[1.5rem]">
                     <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 22vw, 45vw" className="object-cover" />
                   </div>
                 ))}
